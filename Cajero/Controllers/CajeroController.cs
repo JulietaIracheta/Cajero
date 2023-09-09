@@ -23,6 +23,14 @@ namespace Cajero.Controllers
         {
             try
             {
+                var tarjetaBloqueada = await _cajeroLogic.SearchTarjeta(numeroTarjeta);
+
+                if (tarjetaBloqueada.Bloqueada)
+                {
+                    var mensaje = "La tarjeta se encuentra bloqueada";
+                    return BadRequest(new { message = mensaje });
+                }
+
                 var validaDatos = await _cajeroLogic.ValidarDatos(numeroTarjeta, pin);
 
                 if (validaDatos)
@@ -32,7 +40,7 @@ namespace Cajero.Controllers
                 }
                 else
                 {
-                    var mensaje = "No se pudo acceder a su tarjeta, recien bien los datos o comuniquese con el banco";
+                    var mensaje = "No se pudo acceder a su tarjeta, recien bien los datos";
                     return BadRequest(new { message = mensaje });
 
                 }

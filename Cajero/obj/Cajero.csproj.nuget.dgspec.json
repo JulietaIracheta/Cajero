@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Julieta Iracheta\\Downloads\\Cajero\\Cajero\\Cajero.csproj": {}
+    "C:\\Users\\AlanYJuli\\Downloads\\Cajero 1\\Cajero\\Cajero\\Cajero.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Julieta Iracheta\\Downloads\\Cajero\\Cajero\\Cajero.csproj": {
+    "C:\\Users\\AlanYJuli\\Downloads\\Cajero 1\\Cajero\\Cajero\\Cajero.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Julieta Iracheta\\Downloads\\Cajero\\Cajero\\Cajero.csproj",
+        "projectUniqueName": "C:\\Users\\AlanYJuli\\Downloads\\Cajero 1\\Cajero\\Cajero\\Cajero.csproj",
         "projectName": "Cajero",
-        "projectPath": "C:\\Users\\Julieta Iracheta\\Downloads\\Cajero\\Cajero\\Cajero.csproj",
-        "packagesPath": "C:\\Users\\Julieta Iracheta\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Julieta Iracheta\\Downloads\\Cajero\\Cajero\\obj\\",
+        "projectPath": "C:\\Users\\AlanYJuli\\Downloads\\Cajero 1\\Cajero\\Cajero\\Cajero.csproj",
+        "packagesPath": "C:\\Users\\AlanYJuli\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\AlanYJuli\\Downloads\\Cajero 1\\Cajero\\Cajero\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Julieta Iracheta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\AlanYJuli\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -80,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

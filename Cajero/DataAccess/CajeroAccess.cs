@@ -15,10 +15,10 @@ namespace Cajero.DataAccess
         public async Task<bool> ValidarDatos(long numeroTarjeta, int pin)
         {
             var result = await _contextDB.Tarjetas.Where(x => x.NumeroTarjeta == numeroTarjeta && x.Pin == pin).FirstOrDefaultAsync();
+            var searchTarjeta = await _contextDB.Tarjetas.Where(x => x.NumeroTarjeta == numeroTarjeta).FirstOrDefaultAsync();
 
             if (result == null)
             {
-                var searchTarjeta = await _contextDB.Tarjetas.Where(x => x.NumeroTarjeta == numeroTarjeta).FirstOrDefaultAsync();
 
                 if (searchTarjeta != null)
                 {
@@ -28,6 +28,7 @@ namespace Cajero.DataAccess
                         if (searchTarjeta.Pin == pin)
                         {
                             searchTarjeta.IntentosFallidos = 0;
+                            _contextDB.Tarjetas.Update(searchTarjeta);
                             await _contextDB.SaveChangesAsync();
                             return true;
                         }
@@ -46,14 +47,33 @@ namespace Cajero.DataAccess
 
                         }
                     }
-                    else
+                }
+            }
+            else
+            {
+                if (searchTarjeta.Pin == pin)
+                {
+                    searchTarjeta.IntentosFallidos = 0;
+                    _contextDB.Tarjetas.Update(searchTarjeta);
+                    await _contextDB.SaveChangesAsync();
+                    return true;
+                }
+
+                else
+                {
+                    searchTarjeta.IntentosFallidos++;
+
+                    if (searchTarjeta.IntentosFallidos == 4)
                     {
-                        return false;
+                        searchTarjeta.Bloqueada = true;
                     }
+
+                    _contextDB.Tarjetas.Update(searchTarjeta);
+                    await _contextDB.SaveChangesAsync();
                 }
             }
 
-            return true;
+            return false;
         }
 
         public async Task<Tarjeta> SearchTarjeta(long numeroTarjeta)
